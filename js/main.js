@@ -52,6 +52,12 @@ function setBackgroundImg() {
     }
 }
 
+// Clear Name
+function clearName(e) {
+    e.target.textContent = '   ';
+    e.target.focus();
+}
+
 // Get Name
 function getName() {
     if(localStorage.getItem('name') === null) {
@@ -72,6 +78,12 @@ function setName(e) {
     } else {
         localStorage.setItem('name', e.target.innerText);
     }
+}
+
+// Clear Focus
+function clearFocus(e) {
+    e.target.textContent = '   ';
+    e.target.focus();
 }
 
 // Get Focus
@@ -96,8 +108,10 @@ function setFocus(e) {
     }
 }
 
+name.addEventListener('focus', clearName);
 name.addEventListener('keypress', setName);
 name.addEventListener('blur', setName);
+focus.addEventListener('focus', clearFocus);
 focus.addEventListener('keypress', setFocus);
 focus.addEventListener('blur', setFocus);
 
